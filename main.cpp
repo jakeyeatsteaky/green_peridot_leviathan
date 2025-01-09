@@ -2,6 +2,8 @@
 #include <fstream>
 #include <vector>
 
+#include "util.hpp"
+
 #define DESCRIPTION 0 
 #if DESCRIPTION
     Okay so here is the general gist for how I want to create this thing.
@@ -19,20 +21,6 @@
     Encoded in the first 2 numbers are the number of weeks, and number of training sessions per day
     then the following digits are maybe indices in a LUT for other things? I dont really know how its going to work yet but this is kind of the geenral idea
 #endif
-
-typedef enum
-{
-    StartingStrength,
-    StrongLifts5x5,
-    FiveThreeOne,
-    Candito
-} TrainingProgram;
-
-struct Exercise
-{
-    std::string name;
-    size_t id;
-};
 
 struct Session
 {
