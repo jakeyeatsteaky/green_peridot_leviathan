@@ -11,3 +11,14 @@ I am currently targeting the usage of:
     [ ] React
     [ ] Javascript
     [ ] Tailwinds CSS
+
+
+## Generic Notes
+
+### on lambdas:
+    [capture] (parameters) -> return_type { body }
+    captures: which variables from the surrounding scope should be accessible
+                within the body of the lambda.  by value or reference
+
+    std::function<return_type(params)>;
+    
