@@ -11,31 +11,36 @@ typedef enum
 
 typedef enum
 {
+    Accessories = -1,
     Squat,
     Bench,
-    Deadlift
+    Deadlift,
+    Press
 } Exercise;
 
-void exerciseNameStr(const Exercise ex, std::string& name)
-{
-    switch (ex)
-    {
-        case Squat:
-            name = "Squat";
-            break;
+// void exerciseNameStr(const Exercise ex, std::string& name)
+// {
+//     switch (ex)
+//     {
+//         case Squat:
+//             name = "Squat";
+//             break;
 
-        case Bench:
-            name = "Bench";
-            break;
+//         case Bench:
+//             name = "Bench";
+//             break;
 
-        case Deadlift:
-            name = "Deadlift";
-            break;
+//         case Deadlift:
+//             name = "Deadlift";
+//             break;
 
-        default:
-            name = "Exercise_Not_Handled";
-            break;
-    }
-}
+//         default:
+//             name = "Exercise_Not_Handled";
+//             break;
+//     }
+// }
+
+void program_generator();
+
 
 #endif
