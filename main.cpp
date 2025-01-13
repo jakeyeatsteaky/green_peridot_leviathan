@@ -66,6 +66,7 @@ int main(int argc, char** argv)
 
     size_t ppmHEIGHT = 200;
     size_t ppmWIDTH = 200;
+    int pixels[ppmWIDTH*ppmHEIGHT];
 
     file << "P3" << std::endl;
     std::string line = std::to_string(ppmHEIGHT) + " " + std::to_string(ppmWIDTH);
@@ -75,7 +76,7 @@ int main(int argc, char** argv)
         line.clear();
         for (int j = 0; j < ppmWIDTH; j++) {
             int color = (i*j*2134) % 255;
-
+            pixels[i*j + j] = color;
             line += (std::to_string(color) + " ");
         }
         file << line << std::endl;
@@ -83,7 +84,6 @@ int main(int argc, char** argv)
     file.close();
 
     FILE* f = nullptr;
-    char pixels[ppmWIDTH*ppmHEIGHT];
     f = fopen("output2.ppm", "wb");
     if (f == nullptr) {
         fclose(f);
@@ -97,10 +97,14 @@ int main(int argc, char** argv)
     }
 
     for (size_t i = 0; i < ppmWIDTH*ppmHEIGHT; i++) {
-        uint32_t pixel = pixels[i];
-        uint8_t byte[3] = {
-            
-        }
+        int pixel = pixels[i];
+        char bytes[3] = {
+            (pixel >> (8*0)) & 0xFF,
+            (pixel >> (8*1)) & 0xFF,
+            (pixel >> (8*2)) & 0xFF
+        };
+
+        fwrite(bytes, sizeof(bytes), 1, f);
     }
 
 
